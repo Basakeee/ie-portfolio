@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IE Portfolio</title>
+  <meta name="description" content="Portfolio และ Resume นักศึกษาวิศวกรรมอุตสาหการ ชั้นปีที่ 4 สำหรับสมัครสหกิจศึกษา">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== แถบเมนู ===== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="#home" data-bind="brand"></a>
+      <button class="nav__toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--small" data-bind="resumePdf" href="#" target="_blank" rel="noopener">Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 00 Hero ===== -->
+    <section class="hero" id="home">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="badge" data-bind="availability"></p>
+          <h1 class="hero__name" data-bind="name"></h1>
+          <p class="hero__name-en" data-bind="nameEn"></p>
+          <p class="hero__title" data-bind="title"></p>
+          <p class="hero__tagline" data-bind="tagline"></p>
+          <div class="hero__actions">
+            <a class="btn" href="#projects">ดูผลงาน</a>
+            <a class="btn btn--ghost" href="#resume">ดู Resume</a>
+          </div>
+        </div>
+        <div class="hero__photo" id="heroPhoto"></div>
+      </div>
+    </section>
+
+    <!-- ===== 01 About ===== -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <p class="section__no">01 / About</p>
+        <h2 class="section__title">เกี่ยวกับฉัน</h2>
+        <div class="about__grid">
+          <div class="about__text" id="aboutText"></div>
+          <div class="stats" id="aboutStats"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 Resume ===== -->
+    <section class="section section--alt" id="resume">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="section__no">02 / Resume</p>
+            <h2 class="section__title">Resume</h2>
+          </div>
+          <div class="section__actions no-print">
+            <button class="btn btn--ghost btn--small" id="printBtn" type="button">พิมพ์ / บันทึกเป็น PDF</button>
+          </div>
+        </div>
+
+        <!-- หัวกระดาษ แสดงเฉพาะตอนพิมพ์ -->
+        <div class="print-header" id="printHeader"></div>
+
+        <div class="resume__grid">
+          <div class="resume__main">
+            <h3 class="resume__heading">การศึกษา</h3>
+            <div class="timeline" id="education"></div>
+
+            <h3 class="resume__heading">ประสบการณ์ / ฝึกงาน</h3>
+            <div class="timeline" id="experience"></div>
+
+            <h3 class="resume__heading">กิจกรรม</h3>
+            <div class="timeline" id="activities"></div>
+          </div>
+          <aside class="resume__side">
+            <h3 class="resume__heading">ทักษะ</h3>
+            <div id="skills"></div>
+
+            <h3 class="resume__heading">ใบรับรอง / อบรม</h3>
+            <ul class="plain-list" id="certificates"></ul>
+
+            <h3 class="resume__heading">ภาษา</h3>
+            <ul class="plain-list" id="languages"></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 Projects ===== -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <p class="section__no">03 / Projects</p>
+        <h2 class="section__title">ผลงาน</h2>
+        <div class="filters" id="filters"></div>
+        <div class="cards" id="projectCards"></div>
+      </div>
+    </section>
+
+    <!-- ===== 04 Contact ===== -->
+    <section class="section section--dark" id="contact">
+      <div class="wrap contact">
+        <p class="section__no">04 / Contact</p>
+        <h2 class="section__title">ติดต่อ</h2>
+        <p class="contact__lead" data-bind="contactLead"></p>
+        <div class="contact__list" id="contactList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© <span id="year"></span> <span data-bind="nameEn"></span></div>
+  </footer>
+
+  <!-- ===== หน้าต่างรายละเอียดผลงาน ===== -->
+  <dialog class="modal" id="projectModal">
+    <button class="modal__close" id="modalClose" aria-label="ปิด">×</button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
